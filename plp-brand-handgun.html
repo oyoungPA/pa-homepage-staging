@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap"
+  />
+  <style>
+    body {
+      font-family: "Open Sans", sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    .top-brands-container {
+      border: 1px solid #000;
+      padding-top: 20px;
+      padding-left: 25px;
+      padding-right: 25px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      max-width: 840px;
+    }
+    
+    .top-brands-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .top-brands-header h2 {
+      margin: 0 0 0 10px;
+      font-weight: 700;
+    }
+
+    .shop-all-btn {
+      background-color: #d12b2b;
+      color: #fff;
+      padding: 4px 20px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      margin-right: 10px;
+      white-space: nowrap;
+      width: 30%;
+    }
+
+    .brands-list {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 30px;
+    }
+
+    .brand-item {
+      display: inline-block;
+      margin: 0 4px;
+      border: 1px solid black;
+      padding: 10px;
+      transition: .6s ease;
+    }
+
+    .brand-item:hover {
+      transform: scale(1.03);
+      padding-top: 1px;
+      border: none;
+    }
+
+    .brand-item img {
+      max-width: 100px;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px;
+    }
+
+    .brand-name {
+      margin-bottom: 0px;
+      text-align: center;
+      color: black;
+      font-weight: 600;
+    }
+
+    .scroll-arrow {
+      position: absolute;
+      top: 38%;
+      background-color: transparent;
+      color: #242424;
+      font-size: 30px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .scroll-arrow.left {
+      left: 8px;
+    }
+
+    .scroll-arrow.right {
+      right: 8px;
+    }
+
+    @media only screen and (max-width: 1199px) {
+      .brand-item {
+        width: 120px;
+      }
+    }
+
+    @media only screen and (max-width: 425px) {
+        .title-header {
+            margin: 0 !important;
+            font-size: 20px !important;
+        }
+
+        .shop-all-btn {
+            font-size: 13px;
+            margin-right: 0;
+            padding: 2px 10px;
+            width: 35%;
+        }
+
+        .facets-facet-browse-facets {
+            display: none !important;
+        }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-brands-container">
+    <div class="top-brands-header">
+      <h2 class="title-header">TOP BRANDS</h2>
+      <a href="#" class="shop-all-btn" onclick="scrollToElement()">Shop All</a>
+    </div>
+
+    <button
+      class="scroll-arrow left"
+      id="scrollLeftArrow"
+      onclick="scrollLeftAction()"
+    >
+      &#10094;
+    </button>
+
+    <div class="brands-list" id="brandsList">
+      <a href="https://www.primaryarms.com/handguns/semi-automatic-pistols/brand/glock" class="brand-link">
+        <div class="brand-item">
+          <img
+            src="https://image.primaryarms.com/images/primary-arms/landing-pages/plp-brand-test/brand-glock?updatedAt=1724333882944"
+            alt="Glock"
+            style="height: 67px;"
+          />
+          <p class="brand-name">Glock</p>
+        </div>
+      </a>
+      
+      <a href="https://www.primaryarms.com/handguns/semi-automatic-pistols/brand/sig-sauer" class="brand-link">
+        <div class="brand-item">
+          <img
+            src="https://image.primaryarms.com/images/primary-arms/landing-pages/plp-brand-test/brand-sig-sauer?updatedAt=1724333927329"
+            alt="Sig Sauer"
+            style="height: 67px;"
+          />
+          <p class="brand-name">Sig Sauer</p>
+        </div>
+      </a>
+      
+      <a href="https://www.primaryarms.com/handguns/semi-automatic-pistols/brand/cz-usa" class="brand-link">
+        <div class="brand-item">
+          <img
+            src="https://image.primaryarms.com/images/primary-arms/landing-pages/plp-brand-test/brand-cz-usa?updatedAt=1724333976610"
+            alt="CZ USA"
+            style="height: 67px;"
+          />
+          <p class="brand-name">CZ USA</p>
+        </div>
+      </a>
+      
+      <a href="https://www.primaryarms.com/handguns/semi-automatic-pistols/brand/canik" class="brand-link">
+        <div class="brand-item">
+          <img
+            src="https://image.primaryarms.com/images/primary-arms/landing-pages/plp-brand-test/brand-canik?updatedAt=1724334021453"
+            alt="Canik"
+            style="height: 67px;"
+          />
+          <p class="brand-name">Canik</p>
+        </div>
+      </a>
+      
+      <a href="https://www.primaryarms.com/handguns/semi-automatic-pistols/brand/beretta" class="brand-link">
+        <div class="brand-item">
+          <img
+            src="https://image.primaryarms.com/images/primary-arms/landing-pages/plp-brand-test/brand-beretta?updatedAt=1724334071294"
+            alt="Beretta"
+            style="height: 67px;"
+          />
+          <p class="brand-name">Beretta</p>
+        </div>
+      </a>
+      
+      <a href="https://www.primaryarms.com/handguns/semi-automatic-pistols/brand/walther" class="brand-link">
+        <div class="brand-item">
+          <img
+            src="https://image.primaryarms.com/images/primary-arms/landing-pages/plp-brand-test/brand-walther?updatedAt=1724334112838"
+            alt="Walther"
+            style="height: 67px;"
+          />
+          <p class="brand-name">Walther</p>
+        </div>
+      </a>   
+    </div>
+
+    <button
+      class="scroll-arrow right"
+      id="scrollRightArrow"
+      onclick="scrollRightAction()"
+    >
+      &#10095;
+    </button>
+  </div>
+
+  <script>
+
+const brandsList = document.getElementById("brandsList");
+const scrollLeftArrow = document.getElementById("scrollLeftArrow");
+const scrollRightArrow = document.getElementById("scrollRightArrow");
+
+function updateArrowVisibility() {
+  const isScrollable = brandsList.scrollWidth > brandsList.clientWidth;
+  const isScrolledToStart = brandsList.scrollLeft <= 0;
+  const isScrolledToEnd = brandsList.scrollLeft + brandsList.clientWidth >= brandsList.scrollWidth - 1; 
+
+  scrollLeftArrow.style.display = isScrollable && !isScrolledToStart ? "block" : "none";
+  scrollRightArrow.style.display = isScrollable && !isScrolledToEnd ? "block" : "none";
+}
+
+function scrollAction(direction) {
+  const itemWidth = brandsList.querySelector('.brand-item').offsetWidth;
+  brandsList.scrollBy({
+    left: direction * (itemWidth + 10),
+    behavior: "smooth",
+  });
+}
+
+function scrollRightAction() {
+  scrollAction(1);
+}
+
+function scrollLeftAction() {
+  scrollAction(-1);
+}
+
+function handleGesture() {
+  if (touchendX < touchstartX) scrollRightAction();
+  if (touchendX > touchstartX) scrollLeftAction();
+}
+
+brandsList.addEventListener("scroll", updateArrowVisibility);
+window.addEventListener("resize", updateArrowVisibility);
+
+let touchstartX = 0;
+let touchendX = 0;
+
+brandsList.addEventListener("touchstart", (event) => {
+  touchstartX = event.changedTouches[0].screenX;
+});
+
+brandsList.addEventListener("touchend", (event) => {
+  touchendX = event.changedTouches[0].screenX;
+  handleGesture();
+});
+
+window.addEventListener('load', () => {
+  setTimeout(updateArrowVisibility, 100);
+});
+
+updateArrowVisibility();
+  </script>
+
+<script>
+    function scrollToElement() {
+        const targetElement = document.querySelector('.facets-item-cell-grid-image-wrapper');
+        const mobileTarget = document.querySelector('.facets-facet-browse-items');
+        
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        } else if (mobileTarget) {
+            mobileTarget.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+</script>
+
+</body>
+</html>
