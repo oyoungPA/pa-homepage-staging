@@ -1,386 +1,247 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap"
-  />
-  <style>
-    body {
-      font-family: "Open Sans", sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    .top-brands-container {
-      border: 1px solid #000;
-      padding-top: 20px;
-      padding-left: 25px;
-      padding-right: 25px;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      max-width: 840px;
-    }
-    
-    .top-brands-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" />
+    <style>
+        body {
+            font-family: "Open Sans", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .top-brands-header h2 {
-      margin: 0 0 0 10px;
-      font-weight: 700;
-    }
+        .top-brands-container {
+            border: 1px solid #000;
+            padding-top: 20px;
+            padding-left: 25px;
+            padding-right: 25px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            max-width: 840px;
+        }
 
-    .shop-all-btn {
-      background-color: #d12b2b;
-      color: #fff;
-      padding: 4px 20px;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 600;
-      margin-right: 10px;
-      white-space: nowrap;
-      width: 30%;
-    }
+        .top-brands-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-    .brands-list-prod {
-      display: flex;
-      overflow-x: auto;
-      white-space: nowrap;
-      padding-bottom: 30px;
-      /* justify-content: center; */
-      gap: 10px;
-    }
-
-    .brand-link-prod {
-        width: 180px;
-    }
-
-    .brand-item-prod {
-      display: inline-block;
-      margin: 0 4px;
-      border: 1px solid black;
-      padding: 10px;
-      transition: .6s ease;
-      width: 100%;
-    }
-
-    .brand-item-prod:hover {
-      transform: scale(1.03);
-      padding-top: 1px;
-      border: none;
-    }
-
-    .brand-item-prod img {
-      max-width: 100px;
-      height: auto;
-      display: block;
-      margin: 0 auto 10px;
-    }
-
-    .brand-name {
-      margin-bottom: 0px;
-      text-align: center;
-      color: black;
-      font-weight: 600;
-    }
-
-    .scroll-arrow {
-      position: absolute;
-      top: 38%;
-      background-color: transparent;
-      color: #242424;
-      font-size: 30px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .scroll-arrow.left {
-      left: 8px;
-    }
-
-    .scroll-arrow.right {
-      right: 8px;
-    }
-
-    /* @media only screen and (max-width: 1199px) {
-      .brand-item-prod {
-        width: 120px;
-      }
-    } */
-
-    @media only screen and (max-width: 425px) {
-        .title-header {
-            margin: 0 !important;
-            font-size: 20px !important;
+        .top-brands-header h2 {
+            margin: 0 0 0 10px;
+            font-weight: 700;
         }
 
         .shop-all-btn {
-            font-size: 13px;
-            margin-right: 0;
-            padding: 2px 10px;
-            width: 35%;
+            background-color: #d12b2b;
+            color: #fff;
+            padding: 4px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-right: 10px;
+            white-space: nowrap;
+            width: 30%;
         }
 
-        .facets-facet-browse-facets {
-            display: none !important;
+        .brands-list-prod {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 30px;
+            gap: 10px;
         }
-    }
-  </style>
+
+        .brand-link-prod {
+            width: 185px;
+        }
+
+        .brand-item-prod {
+            display: inline-block;
+            margin: 0 4px;
+            border: 1px solid black;
+            padding: 10px;
+            transition: .6s ease;
+            width: 100%;
+        }
+
+        .brand-item-prod:hover {
+            transform: scale(1.03);
+            padding-top: 1px;
+            border: none;
+        }
+
+        .brand-item-prod img {
+            max-width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;
+        }
+
+        .brand-name {
+            margin-bottom: 0px;
+            text-align: center;
+            color: black;
+            font-weight: 600;
+        }
+
+        .scroll-arrow {
+            position: absolute;
+            top: 38%;
+            background-color: transparent;
+            color: #242424;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .scroll-arrow.left {
+            left: 8px;
+        }
+
+        .scroll-arrow.right {
+            right: 8px;
+        }
+
+        @media only screen and (max-width: 425px) {
+            .title-header {
+                margin: 0 !important;
+                font-size: 20px !important;
+            }
+
+            .shop-all-btn {
+                font-size: 13px;
+                margin-right: 0;
+                padding: 2px 10px;
+                width: 35%;
+            }
+
+            .facets-facet-browse-facets {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="top-brands-container">
+        <div class="top-brands-header">
+            <h2 class="title-header">TOP PRODUCTS</h2>
+            <a href="#" class="shop-all-btn" onclick="scrollToElement()">Shop All</a>
+        </div>
 
-  <div class="top-brands-container">
-    <div class="top-brands-header">
-      <h2 class="title-header">TOP PRODUCTS</h2>
-      <a href="#" class="shop-all-btn" onclick="scrollToElement()">Shop All</a>
+        <button class="scroll-arrow left" id="scrollLeftArrow" onclick="scrollLeftAction()">&#10094;</button>
+
+        <div class="brands-list-prod" id="brandsList">
+            <a href="https://www.primaryarms.com/handguns/muzzle-devices" class="brand-link-prod">
+                <div class="brand-item-prod">
+                    <img src="https://image.primaryarms.com/images/primary-arms/landing-pages/plp-brand-test/muzzle?updatedAt=1724878349239" style="height: 67px;" />
+                    <p class="brand-name">Muzzles</p>
+                </div>
+            </a>
+            <a href="https://www.primaryarms.com/handguns/pistol-slides" class="brand-link-prod">
+                <div class="brand-item-prod">
+                    <img src="https://image.primaryarms.com/images/primary-arms/landing-pages/plp-brand-test/pistol-slides?updatedAt=1724878385703" style="height: 67px;" />
+                    <p class="brand-name">Pistol Slides</p>
+                </div>
+            </a>
+            <a href="https://www.primaryarms.com/handguns/magazines" class="brand-link-prod">
+                <div class="brand-item-prod">
+                    <img src="https://image.primaryarms.com/images/primary-arms/landing-pages/plp-brand-test/magazine.webp?updatedAt=1724878407665" style="height: 67px;" />
+                    <p class="brand-name">Magazines</p>
+                </div>
+            </a>
+            <a href="https://www.primaryarms.com/handguns/muzzle-devices/muzzle-brakes-compensators" class="brand-link-prod">
+                <div class="brand-item-prod">
+                    <img src="https://image.primaryarms.com/images/primary-arms/landing-pages/plp-brand-test/barrel?updatedAt=1724878441205" style="height: 67px;" />
+                    <p class="brand-name">Barrels</p>
+                </div>
+            </a>
+        </div>
+
+        <button class="scroll-arrow right" id="scrollRightArrow" onclick="scrollRightAction()">&#10095;</button>
     </div>
 
-    <button
-      class="scroll-arrow left"
-      id="scrollLeftArrow"
-      onclick="scrollLeftAction()"
-    >
-      &#10094;
-    </button>
+    <script>
+        const brandsList = document.getElementById("brandsList");
+        const scrollLeftArrow = document.getElementById("scrollLeftArrow");
+        const scrollRightArrow = document.getElementById("scrollRightArrow");
 
-    <div class="brands-list-prod" id="brandsList">
-      <a href="https://www.primaryarms.com/handguns/muzzle-devices" class="brand-link-prod">
-        <div class="brand-item-prod">
-          <img
-            src="https://image.primaryarms.com/images/primary-arms/landing-pages/plp-brand-test/muzzle?updatedAt=1724878349239"
-            style="height: 67px;"
-          />
-          <p class="brand-name">Muzzles</p>
-        </div>
-      </a>
-      
-      <a href="https://www.primaryarms.com/handguns/pistol-slides" class="brand-link-prod">
-        <div class="brand-item-prod">
-          <img
-            src="https://image.primaryarms.com/images/primary-arms/landing-pages/plp-brand-test/pistol-slides?updatedAt=1724878385703"
-            style="height: 67px;"
-          />
-          <p class="brand-name">Pistol Slides</p>
-        </div>
-      </a>
-      
-      <a href="https://www.primaryarms.com/handguns/magazines" class="brand-link-prod">
-        <div class="brand-item-prod">
-          <img
-            src="https://image.primaryarms.com/images/primary-arms/landing-pages/plp-brand-test/magazine.webp?updatedAt=1724878407665"
-            style="height: 67px;"
-          />
-          <p class="brand-name">Magazines</p>
-        </div>
-      </a>
-      
-      <a href="https://www.primaryarms.com/handguns/muzzle-devices/muzzle-brakes-compensators" class="brand-link-prod">
-        <div class="brand-item-prod">
-          <img
-            src="https://image.primaryarms.com/images/primary-arms/landing-pages/plp-brand-test/barrel?updatedAt=1724878441205"
-            style="height: 67px;"
-          />
-          <p class="brand-name">Barrels</p>
-        </div>
-      </a>  
-    </div>
+        function updateArrowVisibilityProd() {
+            // console.log("updateArrowVisibilityProd called");
 
-    <button
-      class="scroll-arrow right"
-      id="scrollRightArrow"
-      onclick="scrollRightAction()"
-    >
-      &#10095;
-    </button>
-  </div>
-  <script>
+            Promise.all(Array.from(brandsList.getElementsByTagName('img')).map(img => {
+                if (img.complete) return Promise.resolve();
+                return new Promise(resolve => { img.onload = img.onerror = resolve; });
+            })).then(() => {
+                void brandsList.offsetWidth;
 
-   
+                // console.log("Dimensions after images loaded:", {
+                //     scrollWidth: brandsList.scrollWidth,
+                //     clientWidth: brandsList.clientWidth
+                // });
 
-const brandsList = document.getElementById("brandsList");
-const scrollLeftArrow = document.getElementById("scrollLeftArrow");
-const scrollRightArrow = document.getElementById("scrollRightArrow");
+                const isScrollable = brandsList.scrollWidth > brandsList.clientWidth;
+                const isScrolledToStart = brandsList.scrollLeft <= 0;
+                const isScrolledToEnd = brandsList.scrollLeft + brandsList.clientWidth >= brandsList.scrollWidth - 1; 
 
-// function updateArrowVisibilityProd() {
-//     console.log("updateArrowVisibilityProd called");
+                scrollLeftArrow.style.display = isScrollable && !isScrolledToStart ? "block" : "none";
+                scrollRightArrow.style.display = isScrollable && !isScrolledToEnd ? "block" : "none";
 
-    
-// console.log("brandsList:", brandsList);
-// console.log("scrollLeftArrow:", scrollLeftArrow);
-// console.log("scrollRightArrow:", scrollRightArrow);
+                // console.log("isScrollable:", isScrollable);
+                // console.log("isScrolledToStart:", isScrolledToStart);
+                // console.log("isScrolledToEnd:", isScrolledToEnd);
+                // console.log("brandsList.scrollLeft:", brandsList.scrollLeft);
+                // console.log("brandsList.scrollWidth:", brandsList.scrollWidth);
+                // console.log("brandsList.clientWidth:", brandsList.clientWidth);
+                // console.log("scrollLeftArrow.style.display:", scrollLeftArrow.style.display);
+                // console.log("scrollRightArrow.style.display:", scrollRightArrow.style.display);
+            });
+        }
 
-//     if (!brandsList) {
-//     console.error("brandsList element not found");
-//     return;
-//   }
+        function scrollAction(direction) {
+            const itemWidth = brandsList.querySelector('.brand-item-prod').offsetWidth;
+            brandsList.scrollBy({
+                left: direction * (itemWidth + 10),
+                behavior: "smooth",
+            });
+        }
 
-//   const isScrollable = brandsList.scrollWidth > brandsList.clientWidth;
-//   const isScrolledToStart = brandsList.scrollLeft <= 0;
-//   const isScrolledToEnd = brandsList.scrollLeft + brandsList.clientWidth >= brandsList.scrollWidth - 1; 
+        function scrollRightAction() {
+            scrollAction(1);
+        }
 
-//   scrollLeftArrow.style.display = isScrollable && !isScrolledToStart ? "block" : "none";
-//   scrollRightArrow.style.display = isScrollable && !isScrolledToEnd ? "block" : "none";
+        function scrollLeftAction() {
+            scrollAction(-1);
+        }
 
-//   console.log("isScrollable:", isScrollable);
-//   console.log("isScrolledToStart:", isScrolledToStart);
-//   console.log("isScrolledToEnd:", isScrolledToEnd);
-//   console.log("brandsList.scrollLeft:", brandsList.scrollLeft);
-//   console.log("brandsList.scrollWidth:", brandsList.scrollWidth);
-//   console.log("brandsList.clientWidth:", brandsList.clientWidth);
-//   console.log("scrollLeftArrow.style.display:", scrollLeftArrow.style.display);
-//   console.log("scrollRightArrow.style.display:", scrollRightArrow.style.display);
-// }
+        function handleGesture() {
+            if (touchendX < touchstartX) scrollRightAction();
+            if (touchendX > touchstartX) scrollLeftAction();
+        }
 
-function updateArrowVisibilityProd() {
-    console.log("updateArrowVisibilityProd called");
+        window.addEventListener("resize", updateArrowVisibilityProd);
 
-    if (!brandsList) {
-        console.error("brandsList element not found");
-        return;
-    }
+        let touchstartX = 0;
+        let touchendX = 0;
 
-    // Wait for images to load
-    Promise.all(Array.from(brandsList.getElementsByTagName('img')).map(img => {
-        if (img.complete) return Promise.resolve();
-        return new Promise(resolve => { img.onload = img.onerror = resolve; });
-    })).then(() => {
-        // Force layout recalculation
-        void brandsList.offsetWidth;
-
-        console.log("Dimensions after images loaded:", {
-            scrollWidth: brandsList.scrollWidth,
-            clientWidth: brandsList.clientWidth
+        brandsList.addEventListener("touchstart", (event) => {
+            touchstartX = event.changedTouches[0].screenX;
         });
 
-        const isScrollable = brandsList.scrollWidth > brandsList.clientWidth;
-        const isScrolledToStart = brandsList.scrollLeft <= 0;
-        const isScrolledToEnd = brandsList.scrollLeft + brandsList.clientWidth >= brandsList.scrollWidth - 1; 
+        brandsList.addEventListener("touchend", (event) => {
+            touchendX = event.changedTouches[0].screenX;
+            handleGesture();
+        });
 
-        scrollLeftArrow.style.display = isScrollable && !isScrolledToStart ? "block" : "none";
-        scrollRightArrow.style.display = isScrollable && !isScrolledToEnd ? "block" : "none";
+        updateArrowVisibilityProd();
 
-        console.log("isScrollable:", isScrollable);
-        console.log("isScrolledToStart:", isScrolledToStart);
-        console.log("isScrolledToEnd:", isScrolledToEnd);
-        console.log("brandsList.scrollLeft:", brandsList.scrollLeft);
-        console.log("brandsList.scrollWidth:", brandsList.scrollWidth);
-        console.log("brandsList.clientWidth:", brandsList.clientWidth);
-        console.log("scrollLeftArrow.style.display:", scrollLeftArrow.style.display);
-        console.log("scrollRightArrow.style.display:", scrollRightArrow.style.display);
-    });
-}
-
-function scrollAction(direction) {
-  const itemWidth = brandsList.querySelector('.brand-item-prod').offsetWidth;
-  brandsList.scrollBy({
-    left: direction * (itemWidth + 10),
-    behavior: "smooth",
-  });
-}
-
-function scrollRightAction() {
-  scrollAction(1);
-}
-
-function scrollLeftAction() {
-  scrollAction(-1);
-}
-
-function handleGesture() {
-  if (touchendX < touchstartX) scrollRightAction();
-  if (touchendX > touchstartX) scrollLeftAction();
-}
-
-brandsList.addEventListener("scroll", updateArrowVisibilityProd);
-window.addEventListener("resize", updateArrowVisibilityProd);
-
-let touchstartX = 0;
-let touchendX = 0;
-
-brandsList.addEventListener("touchstart", (event) => {
-  touchstartX = event.changedTouches[0].screenX;
-});
-
-brandsList.addEventListener("touchend", (event) => {
-  touchendX = event.changedTouches[0].screenX;
-  handleGesture();
-});
-
-// window.addEventListener('load', () => {
-//   setTimeout(updateArrowVisibilityProd, 100);
-// });
-
-// window.addEventListener("load", updateArrowVisibilityProd);
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     updateArrowVisibilityProd();
-// });
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     setTimeout(updateArrowVisibilityProd, 1000);
-// });
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   updateArrowVisibilityProd();
-// });
-
-const observer = new MutationObserver(function(mutations) {
-  updateArrowVisibilityProd();
-  console.log("observed")
-});
-
-observer.observe(brandsList, { childList: true, subtree: true });
-
-updateArrowVisibilityProd();
-
-brandsList.addEventListener("scroll", updateArrowVisibilityProd, { passive: true });
-
-document.addEventListener('DOMContentLoaded', function() {
-  console.log("DOMContentLoaded fired");
-  updateArrowVisibilityProd();
-});
-
-window.addEventListener('load', function() {
-  console.log("Window load fired");
-  updateArrowVisibilityProd();
-});
-
-// Add this if you're using any lazy-loading techniques
-window.addEventListener('DOMContentLoaded', function() {
-  setTimeout(function() {
-    console.log("Delayed call after DOMContentLoaded");
-    updateArrowVisibilityProd();
-  }, 1000);
-
-  document.addEventListener('DOMContentLoaded', updateArrowVisibilityProd);
-window.addEventListener('load', updateArrowVisibilityProd);
-});
-
-   </script>
-
-<script>
-    function scrollToElement() {
-        const targetElement = document.querySelector('.facets-item-cell-grid-image-wrapper');
-        const mobileTarget = document.querySelector('.facets-facet-browse-items');
-        
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        } else if (mobileTarget) {
-            mobileTarget.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-</script>
-
+        brandsList.addEventListener("scroll", updateArrowVisibilityProd, { passive: true });
+    </script>
 </body>
 </html>
