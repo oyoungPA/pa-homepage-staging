@@ -230,14 +230,46 @@ const brandsList = document.getElementById("brandsList");
 const scrollLeftArrow = document.getElementById("scrollLeftArrow");
 const scrollRightArrow = document.getElementById("scrollRightArrow");
 
-function updateArrowVisibility() {
-  const isScrollable = brandsList.scrollWidth > brandsList.clientWidth;
-  const isScrolledToStart = brandsList.scrollLeft <= 0;
-  const isScrolledToEnd = brandsList.scrollLeft + brandsList.clientWidth >= brandsList.scrollWidth - 1; 
+// function updateArrowVisibility() {
+//   const isScrollable = brandsList.scrollWidth > brandsList.clientWidth;
+//   const isScrolledToStart = brandsList.scrollLeft <= 0;
+//   const isScrolledToEnd = brandsList.scrollLeft + brandsList.clientWidth >= brandsList.scrollWidth - 1; 
 
-  scrollLeftArrow.style.display = isScrollable && !isScrolledToStart ? "block" : "none";
-  scrollRightArrow.style.display = isScrollable && !isScrolledToEnd ? "block" : "none";
-}
+//   scrollLeftArrow.style.display = isScrollable && !isScrolledToStart ? "block" : "none";
+//   scrollRightArrow.style.display = isScrollable && !isScrolledToEnd ? "block" : "none";
+// }
+
+function updateArrowVisibility() {
+            // console.log("updateArrowVisibilityProd called");
+
+            Promise.all(Array.from(brandsList.getElementsByTagName('img')).map(img => {
+                if (img.complete) return Promise.resolve();
+                return new Promise(resolve => { img.onload = img.onerror = resolve; });
+            })).then(() => {
+                void brandsList.offsetWidth;
+
+                // console.log("Dimensions after images loaded:", {
+                //     scrollWidth: brandsList.scrollWidth,
+                //     clientWidth: brandsList.clientWidth
+                // });
+
+                const isScrollable = brandsList.scrollWidth > brandsList.clientWidth;
+                const isScrolledToStart = brandsList.scrollLeft <= 0;
+                const isScrolledToEnd = brandsList.scrollLeft + brandsList.clientWidth >= brandsList.scrollWidth - 1; 
+
+                scrollLeftArrow.style.display = isScrollable && !isScrolledToStart ? "block" : "none";
+                scrollRightArrow.style.display = isScrollable && !isScrolledToEnd ? "block" : "none";
+
+                // console.log("isScrollable:", isScrollable);
+                // console.log("isScrolledToStart:", isScrolledToStart);
+                // console.log("isScrolledToEnd:", isScrolledToEnd);
+                // console.log("brandsList.scrollLeft:", brandsList.scrollLeft);
+                // console.log("brandsList.scrollWidth:", brandsList.scrollWidth);
+                // console.log("brandsList.clientWidth:", brandsList.clientWidth);
+                // console.log("scrollLeftArrow.style.display:", scrollLeftArrow.style.display);
+                // console.log("scrollRightArrow.style.display:", scrollRightArrow.style.display);
+            });
+        }
 
 function scrollAction(direction) {
   const itemWidth = brandsList.querySelector('.brand-item').offsetWidth;
