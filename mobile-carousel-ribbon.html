@@ -1,0 +1,235 @@
+<style>
+    .ribbon-banner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        font-size: 14px;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+
+    .ribbon-message {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        flex: 1;
+        position: relative;
+        width: 60%;
+        height: 37px;
+        color: white;
+        border-bottom: 1px solid #D3D3D3;
+    }
+
+    /* .side-links {
+        display: flex;
+        justify-content: center;
+        font-size: 12px;
+        width: 20%;
+        border-bottom: 1px solid #D3D3D3;
+        height: 37px;
+        align-content: center;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .side-links a {
+        color: #393a39;
+        text-decoration: none;
+    }
+
+    .side-links a:hover {
+        text-decoration: underline;
+    } */
+
+    .new-banner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        padding: 5px 35px;
+        font-size: 14px;
+        position: relative;
+        overflow: hidden;
+        clip-path: polygon(2% 0, 100% 0, 98% 100%, 0% 100%);
+        background-color: #ce0d2c;
+        border-bottom: 1px solid #D3D3D3;
+    }
+
+    .banner-content {
+        display: flex;
+        width: 100%;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .new-banner-message {
+        min-width: 100%;
+        flex-shrink: 0;
+        text-align: center;
+        padding: 0 40px;
+        box-sizing: border-box;
+    }
+
+    .new-banner-message span {
+        font-weight: bold;
+    }
+
+    .new-banner-message a {
+        color: white !important;
+        text-decoration: underline;
+        font-weight: 100;
+    }
+
+    .white-link {
+        color: white;
+    }
+
+    .new-banner-message a:hover {
+        text-decoration: none;
+    }
+
+    .banner-icon:hover {
+        background-color: darkred;
+        border-radius: 100%;
+    }
+
+    .banner-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        z-index: 10;
+    }
+
+    .controls {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .new-banner {
+            flex-direction: column;
+            padding: 10px 5px;
+        }
+
+        .new-banner-message {
+            font-size: 20px;
+            padding: 0 20px;
+        }
+
+        .banner-icon {
+            font-size: 14px;
+            width: 25px;
+            height: 25px;
+        }
+
+        .controls {
+            margin-top: 10px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .new-banner {
+            min-height: 40px;
+        }
+
+        .new-banner-message {
+            /* font-size: 10px; */
+            padding: 0 10px;
+        }
+
+        .banner-icon {
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <div class="ribbon-banner">
+        <!-- <div class="side-links">
+            <a href="https://www.primaryarms.com/agencies-dealers">AGENCIES & DEALERS</a>
+        </div> -->
+        <div class="ribbon-message">
+            <div class="new-banner">
+                <div class="banner-icon" id="prev">&lt;</div>
+                <div class="banner-content" id="bannerContent">
+                    <div class="new-banner-message">
+                        Earn a 100 bonus bucks today only! <a href="#">Shop
+                            now</a>
+                    </div>
+                    <div class="new-banner-message">
+                        Exclusive Christmas Deal! <a href="#">Learn More</a>
+                    </div>
+                    <div class="new-banner-message">
+                        Free shipping for all shoppers. <a href="#">Shop
+                            Now</a>
+                    </div>
+                </div>
+                <div class="controls">
+                    <div class="banner-icon" id="next">&gt;</div>
+                    <div class="banner-icon" id="pause"><i class="fa fa-pause"></i></div>
+
+                    
+                </div>
+            </div>
+        </div>
+        <!-- <div class="side-links">
+            <a href="https://track.primaryarms.com/">TRACK YOUR ORDER</a>
+        </div> -->
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        let isPaused = false;
+        const messages = document.querySelectorAll(".new-banner-message");
+        const bannerContent = document.getElementById("bannerContent");
+        const prevButton = document.getElementById("prev");
+        const nextButton = document.getElementById("next");
+        const pauseButton = document.getElementById("pause");
+
+        const updateBanner = () => {
+            const offset = -currentIndex * 100;
+            bannerContent.style.transform = `translateX(${offset}%)`;
+        };
+
+        const showNextMessage = () => {
+            currentIndex = (currentIndex + 1) % messages.length;
+            updateBanner();
+        };
+
+        const showPrevMessage = () => {
+            currentIndex = (currentIndex - 1 + messages.length) % messages.length;
+            updateBanner();
+        };
+
+        let autoplay = setInterval(showNextMessage, 4000);
+
+        prevButton.addEventListener("click", () => {
+            clearInterval(autoplay);
+            showPrevMessage();
+        });
+
+        nextButton.addEventListener("click", () => {
+            clearInterval(autoplay);
+            showNextMessage();
+        });
+
+        pauseButton.addEventListener("click", () => {
+            isPaused = !isPaused;
+            if (isPaused) {
+                clearInterval(autoplay);
+                pauseButton.textContent = "▶";
+            } else {
+                autoplay = setInterval(showNextMessage, 4000);
+                pauseButton.innerHTML = '<i class="fa fa-pause"></i>';
+            }
+        });
+    </script>
